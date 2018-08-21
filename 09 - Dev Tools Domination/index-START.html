@@ -10,6 +10,8 @@
 
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
 
+  <span class="tester">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias debitis aliquam perferendis cum expedita at!</span>
+
   <script>
     const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
@@ -29,24 +31,57 @@
     console.log(`Hello I am ${name}`);
 
     // Styled
+    console.log('%c I am some great text', 'font-size: 30px');
 
     // warning!
+    console.warn('OH BOYYY!');
 
     // Error :|
+    console.error('Damn it!');
 
     // Info
+    console.info('This is information');
 
     // Testing
+    const p = document.querySelector('p');
+
+    console.assert(p.classList.contains('BREAK'), 'You did not select the right Element!');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+    // console.dir(tester);
+
+    console.clear();
+
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old.`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old.`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
 
     // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/kimshuk')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      })
 
   </script>
 </body>
