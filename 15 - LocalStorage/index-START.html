@@ -99,11 +99,13 @@
     }
 
     function toggleLoad() {
-      console.log('load');
       console.log('what', document.querySelector('.toggleAll'));
       let checked = localStorage.getItem('toggleAll');
-      if (checked != null) {
-        document.querySelector('.toggleAll').setAttribute('checked', checked);
+      console.log('checked', checked);
+      if (checked != null && checked == true) {
+        document.querySelector('.toggleAll').checked = checked;
+      } else if (checked != null && checked == false) {
+        document.querySelector('.toggleAll').checked = checked;
       }
     }
 
