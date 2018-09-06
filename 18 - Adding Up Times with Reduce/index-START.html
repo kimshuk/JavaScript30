@@ -195,12 +195,13 @@
     //   .reduce((total, vidSeconds) => total + vidSeconds);
 
     const seconds = timeNodes
-      .reduce((total, current) => {
+      .reduce((total, current, indx) => {
         const timeCode = current.dataset.time;
         // console.log(timeCode);
         const [mins, secs] = timeCode.split(':').map(parseFloat);
         let totalSec = (mins * 60) + secs;
         console.log('totalSec', totalSec);
+        console.log('indx', indx + 1);
         // console.log([mins, secs]);
         total = total + totalSec;
         return total;
